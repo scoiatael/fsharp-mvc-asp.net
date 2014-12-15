@@ -76,3 +76,13 @@ input[type="password"].input-validation-error {
     color:#2BA6CB;
     font-size:large;
 }
+
+.width30 {
+  width: 100px;
+  margin-top: 10px;
+}
+
+.avatar-big {
+  width: 300px;
+  height: 300px;
+}

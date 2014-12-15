@@ -3,18 +3,23 @@
         <a href="#/create" class="small button radius">Create Contact</a>
     </p>
     <div class="row">
-        <div class="four columns header">FirstName</div>
-        <div class="four columns header">LastName</div>
-        <div class="two columns header">Email</div>
         <div class="two columns header">Avatar</div>
+        <div class="three columns header">FirstName</div>
+        <div class="three columns header">LastName</div>
+        <div class="two columns header">Email</div>
+        <div class="two columns header">Links</div>
     </div>
     
-    <div data-ng-repeat="contact in contacts">
+    <div data-ng-repeat="(id, contact) in contacts">
         <div class="row">
-            <div class="four columns">{{contact.firstName}}</div>
-            <div class="four columns">{{contact.lastName}}</div>
+            <img class="two columns avatar-small" src="{{contact.avatar}}" />
+            <div class="three columns">{{contact.firstName}}</div>
+            <div class="three columns">{{contact.lastName}}</div>
             <div class="two columns">{{contact.email}}</div>
-            <div class="two columns">{{contact.avatar}}</div>
+            <div class="two columns">
+              <a href="#/delete/{{id}}" class="small button radius width30">Delete</a>
+              <a href="#/update/{{id}}" class="small button radius width30">Update</a>
+            </div>
         </div>
     </div>
 </div>

@@ -10,10 +10,9 @@ open System.Data.Entity
 open Microsoft.FSharp.Data.TypeProviders
 
 
-type internal EntityConnection = SqlEntityConnection<ConnectionString="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename='C:\Users\etern_000\Documents\My DBs\FsCsMvc41\database.mdf';Integrated Security=True;Connect Timeout=30",
-                                                     Pluralize = true>
 
-type Contact() =
+type MyContact = { firstName : string; lastName: string; email: string; avatar: string }
+(*
     let mutable firstName = ""
     let mutable lastName = ""
     let mutable email = ""
@@ -24,35 +23,4 @@ type Contact() =
     member x.LastName with get() = lastName and set v = lastName <- v
     member x.Email with get() = email and set v = email <- v
     member x.Avatar with get() = avatar and set v = avatar <- v
-
-type DB() =
-    static let db = EntityConnection.GetDataContext()
-    static let contactsTable = db.Contacts
-
-    static let contactFrom (contact : EntityConnection.ServiceTypes.Contact ) = Contact(
-                                                                                     FirstName = contact.FirstName,
-                                                                                     LastName  = contact.LastName,
-                                                                                     Email     = contact.Email
-    )
-
-    static let getContacts() = contactsTable |> Seq.map contactFrom
-
-    static let setFields (contact : Contact) = fun (ofContact : EntityConnection.ServiceTypes.Contact ) ->
-      ofContact.Email <- contact.Email
-      ofContact.FirstName <- contact.FirstName
-      ofContact.LastName <- contact.LastName
-      ; ofContact
-
-    static let saveChanges() = try
-                                db.DataContext.SaveChanges() |> ignore; new System.Net.Http.HttpResponseMessage(enum<System.Net.HttpStatusCode>200)
-                                 with
-                                   | :? System.Data.UpdateException as ex -> new System.Net.Http.HttpResponseMessage(enum<System.Net.HttpStatusCode>500)
-
-    static let insertContact (contact : Contact) = contactsTable.CreateObject(
-                                                                 Avatar    = contact.Avatar,
-                                                                 FirstName = contact.FirstName,
-                                                                 LastName  = contact.LastName,
-                                                                 Email     = contact.Email ) |> fun contact -> db.DataContext.AddObject("Contacts", contact); saveChanges()
-
-    static member getAll() = getContacts()
-    static member createNew = insertContact
+    *)
