@@ -9,6 +9,8 @@
                     $http.get("/api/contacts").success(function(data) {
                         contacts = data;
                         callback(contacts);
+                    }).error(function() {
+                      toastr.error("There was an error downloading contacts", "<sad face>");
                     });
                 } else {
                     callback(contacts);
