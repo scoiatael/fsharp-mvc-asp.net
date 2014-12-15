@@ -7,27 +7,30 @@
                 First Name:
             </div>
             <div class="editor-field">
-                <input id="firstName" name="firstName" type="text"/>
+                <input id="firstName" ng-model="firstName" name="firstName" type="text" ng-pattern="word" ng-maxlength="10"/>
             </div>
 
             <div class="editor-label">
                 Last Name:
             </div>
             <div class="editor-field">
-                <input id="lastName" name="lastName" type="text"/>
+                <input id="lastName" name="lastName" ng-model="lastName" type="text" ng-pattern="word" ng-maxlength="10"/>
             </div>
 
             <div class="editor-label">
                 Email:
             </div>
             <div class="editor-field">
-                <input id="email" name="email" type="text"/>
+                <input id="email" name="email" ng-model="email" type="text" required ng-pattern="email" ng-trim="true" ng-maxlength="10"/>
+                <span class="error" ng-show="contactForm.email.$error.required">
+                  Required!
+                </span>
             </div>
             <div class="editor-label">
                 Avatar:
             </div>
             <div class="editor-field">
-                <input id="avatar" name="avatar" type="text"/>
+                <input id="avatar" name="avatar" ng-model="avatar" type="text" ng-pattern="html" ng-trim="true" ng-maxlength="30"/>
             </div>
             <p>
                 <input id="saveContact" type="button" class="small button radius" value="Save" data-ng-click="addContact()" />

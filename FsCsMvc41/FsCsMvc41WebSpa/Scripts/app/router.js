@@ -19,8 +19,8 @@
 
             contactService.addItem = function (item) {
                 contacts.push(item);
-                $http.post("/api/contacts", {
-                    data: JSON.stringify(item),
+                $http.post("/api/contacts",
+                    JSON.stringify(item), {
                     headers: {
                       'Content-Type': 'application/json'
                     },
@@ -40,7 +40,7 @@
               var contact = contacts.splice(id, id+1)[0];
               console.log("Sending request to delete ", contact, "from", contacts);
               $http.delete("/api/contacts", {
-                  data: JSON.stringify(contact),
+                  data: JSON.stringify(contact), 
                   headers: {
                     'Content-Type': 'application/json'
                   },
@@ -58,8 +58,8 @@
             contactService.updateItem = function (id, contact) {
               old_contact = contacts[id];
               contacts[id] = contact;
-              $http.put( "/api/contacts", {
-                  data: JSON.stringify(contact),
+              $http.put( "/api/contacts",
+                  JSON.stringify(contact), {
                   headers: {
                     'Content-Type': 'application/json'
                   },
