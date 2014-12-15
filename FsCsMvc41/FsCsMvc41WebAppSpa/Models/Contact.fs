@@ -11,8 +11,7 @@ open Microsoft.FSharp.Data.TypeProviders
 
 
 
-type MyContact = { firstName : string; lastName: string; email: string; avatar: string }
-(*
+type MyContact() =
     let mutable firstName = ""
     let mutable lastName = ""
     let mutable email = ""
@@ -23,4 +22,3 @@ type MyContact = { firstName : string; lastName: string; email: string; avatar: 
     member x.LastName with get() = lastName and set v = lastName <- v
     member x.Email with get() = email and set v = email <- v
     member x.Avatar with get() = avatar and set v = avatar <- v
-    *)
