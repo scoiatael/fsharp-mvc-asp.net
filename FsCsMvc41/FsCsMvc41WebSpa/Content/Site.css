@@ -86,3 +86,8 @@ input[type="password"].input-validation-error {
   width: 300px;
   height: 300px;
 }
+
+.ng-invalid.ng-dirty {
+  border-color: #ff0000;
+  border-bottom-width: thick;
+}
