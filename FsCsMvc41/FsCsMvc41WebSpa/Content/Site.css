@@ -82,9 +82,14 @@ input[type="password"].input-validation-error {
   margin-top: 10px;
 }
 
+.avatar-small {
+  border-radius: 100px;
+}
+
 .avatar-big {
   width: 300px;
   height: 300px;
+  border-radius:300px;
 }
 
 .ng-invalid.ng-dirty {
